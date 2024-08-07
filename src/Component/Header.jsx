@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link,NavLink,useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify';
 
 
@@ -11,7 +12,7 @@ function Header() {
     const logout = () => {
         localStorage.removeItem('id');
         localStorage.removeItem('name');
-        alert('Logout Successfull !');
+        toast.success('Logout Successfull !');
         redirect('/');
     }
 

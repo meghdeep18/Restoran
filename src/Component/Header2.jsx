@@ -1,6 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link,NavLink,useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 function Header2() {
+  
+
+ 
+  const redirect = useNavigate();
+
+  const logout = () => {
+      localStorage.removeItem('id');
+      localStorage.removeItem('name');
+      toast.success('Logout Successfull !');
+      redirect('/');
+  }
   return (
 <div className="container-xxl position-relative p-0">
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -28,7 +40,25 @@ function Header2() {
         </div>
         <NavLink to="/contact" className="nav-item nav-link">Contact</NavLink>
       </div>
-      <NavLink to="/signup" className="btn btn-primary py-2 px-4">Registration</NavLink>
+                  
+      {(() =>{
+
+if (localStorage.getItem('id')) 
+{
+ return(
+<a href="javascript:void(0)" onClick={logout} className="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Logout<i className="fa fa-arrow-right ms-3" /></a>
+        )                
+}
+else 
+{
+return (
+       // <Link to="/signup" className="btn btn-primary py-2 px-4">Registration</Link> 
+                         <Link to="/login" className="btn btn-primary rounded-0 py-4 px-md-4 d-none d-lg-block">Registration<i className="fa fa-arrow-right ms-3" /></Link>
+     )
+                 
+}
+})()}
+      {/* <NavLink to="/signup" className="btn btn-primary py-2 px-4">Registration</NavLink> */}
     </div>
   </nav>
   <div className="container-xxl py-5 bg-dark hero-header mb-5">
