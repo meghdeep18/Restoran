@@ -1,12 +1,24 @@
 import React from 'react'
-
 import axios from 'axios';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 function Login() {
+
+
+  function sendEmail(e) {
+    e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs.sendForm('service_w0yv91m', 'template_qfzo3ui', e.target, '7N-2B1tb4vkoFsprg')
+      .then((result) => {
+          window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
   
   const redirect = useNavigate();
 
@@ -96,7 +108,7 @@ function Login() {
               </div>
             </div>
           </div>
-          
+          <form onsubmit={sendEmail}>
           <div className="col-md-12">
             <div className="wow fadeInUp" data-wow-delay="0.2s">
               <form>
@@ -120,13 +132,15 @@ function Login() {
                  
                   </div>
                   <div className="col-12">
-                  <button onClick={onsubmit} className="btn btn-primary w-100 py-3" type="submit">Login</button>
+                  <button onClick={onsubmit}  className="btn btn-primary w-100 py-3" value="send" type="submit">Login</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
+          </form>
           <div>
+
             <Link to="/signup">
                 if u have  already not  Register plz click here
             </Link>
