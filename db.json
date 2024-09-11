@@ -115,6 +115,22 @@
       "password": "meghdeep",
       "mobile": "6354860482",
       "status": "Unblock"
+    },
+    {
+      "id": "1726045733214",
+      "name": "kanchan ",
+      "email": "kanchan@gmail.com",
+      "password": "meghdeep",
+      "mobile": "23231531654",
+      "status": "Unblock"
+    },
+    {
+      "id": "1726045797838",
+      "name": "abhishek",
+      "email": "abhishek@gmail.com",
+      "password": "123456",
+      "mobile": "1234567891",
+      "status": "Unblock"
     }
   ],
   "contact": [
@@ -220,10 +236,20 @@
       "id": "1721639695368"
     }
   ],
-  "admin": {
-    "adminid": 1,
-    "adminname": "meghdeep",
-    "email": "meghdeep@gmail.com",
-    "password": "megh"
-  }
+
+"admin": [
+    {
+      "adminid": 1,
+      "adminname": "meghdeep",
+      "email": "meghdeep@gmail.com",
+      "password": "megh"
+    },
+    {
+      "adminid": 2,
+      "adminname": "samruddhi ",
+      "email": "samruddhi@gmail.com",
+      "password": "megh"
+    }
+  ]
+
 }

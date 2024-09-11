@@ -12,10 +12,14 @@ function Booking() {
     email: "",
     message: "",
   })
+
+  // creates random id 
   const onchange = (e) => {
     setFormvalue({ ...formvalue, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
     //console.log(formvalue);
   }
+
+  // form validation
 
   const validation = () => {
     var result = true;
@@ -38,6 +42,7 @@ function Booking() {
     return result;
   }
 
+// onsubmit set the value on the api 
 
   const onsubmit = async (e) => {
     e.preventDefault();
